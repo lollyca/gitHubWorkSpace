@@ -9,7 +9,7 @@ public class JBookQuote extends JFrame implements ActionListener{
    JLabel msg3 = new JLabel();
    String title = "**    A Christmas Carol    **";
     public JBookQuote() {
-        // Write your code here
+   
         add(msg1);
         add(msg2);
         add(msg3);
@@ -19,7 +19,6 @@ public class JBookQuote extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e)
     {
-      // your code here
       String bookTitle = title;
       msg3.setText(bookTitle);
     }
