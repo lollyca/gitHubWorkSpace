@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.nio.file.*;
 import java.io.*;
 import java.nio.channels.FileChannel;
@@ -37,3 +38,44 @@ public class DebugThirteen2
        }
    }
 }
+=======
+import java.nio.file.*;
+import java.io.*;
+import java.nio.channels.FileChannel;
+import java.nio.ByteBuffer;
+import static java.nio.file.StandardOpenOption.*;
+public class DebugThirteen2
+{
+   public static void main(String[] args)
+   {
+      Path fileIn =
+         Paths.get("/root/sandbox/DebugData2.txt");
+      Path fileOut =
+         Paths.get("/root/sandbox/DebugData2New.txt");
+      String areaCode = "(312) ";
+      String phone;
+      InputStream input = null;
+      OutputStream output = null;
+      try
+      {
+         input = Files.newInputStream(fileIn);
+         BufferedReader reader = new BufferedReader
+            (new InputStreamReader(input));
+         output = Files.newOutputStream(fileOut);
+         phone = reader.readLine();
+         while(phone != null)
+         {
+            phone = areaCode + phone + System.getProperty("line.separator");
+            byte[] phoneBytes = phone.getBytes();
+            output.write(phoneBytes);
+            phone = reader.readLine();
+         }
+         input.close();
+       }
+       catch (IOException e)
+       {
+          System.out.println(e);
+       }
+   }
+}
+>>>>>>> 080ee61c40140dbca5f11d90f137b97c34efbd3b
